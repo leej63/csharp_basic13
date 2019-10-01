@@ -38,7 +38,7 @@ namespace Basic13
         }
 
         // Find Max
-        public static void FindMax(int[] numbers){
+        public static int FindMax(int[] numbers){
             int max = numbers[0];
             for(int i = 0; i < numbers.Length; i++){
                 if(numbers[i] > max){
@@ -46,6 +46,7 @@ namespace Basic13
                 }
             }
             Console.WriteLine(max);
+            return max;
         }
 
         // Get Average
@@ -58,14 +59,15 @@ namespace Basic13
         }
 
         // Array with Odd Numbers
-        public static void OddArray(){
-            var newArr = new List<int>();
+        public static int[] OddArray(){
+            List<int> newArr = new List<int>();
             for(int i = 1; i <= 255; i++){
                 if(i % 2 != 0){
                 newArr.Add(i);
                 }
             }
             Console.WriteLine(newArr);
+            return newArr.ToArray();
         }
 
         // Greater than Y
@@ -126,13 +128,17 @@ namespace Basic13
         }
 
         // Number to string
-        public static void NumToString(List<object> numbers){
-            for(int i = 0; i < numbers.Length; i++){
-                if(numbers[i] < 0){
-                    numbers[i] = "Dojo";
+        public static object[] NumToString(int[] numbers){
+            List<object> example = new List<object>();
+            foreach(var num in numbers){
+                if(num >= 0){
+                    example.Add(num);
+                }
+                else{
+                    example.Add("Dojo");
                 }
             }
-            Console.WriteLine(numbers);
+            return example.ToArray();
         }
         static void Main(string[] args)
         {
